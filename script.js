@@ -9,11 +9,18 @@ buttons.forEach((button) =>{
 
 function btnClick(event){
     let n = event.target.textContent;
-    if(n == " AC "){
+    if(n == "AC"){
         textScreen.innerHTML = "";
         return;
     }
+    else if(n == "."){
+        if(textScreen.textContent[textScreen.textContent.length-1] == "."){
+            return;
+        }
+    }
+    else if(n == "="){
+        
+    }
     textScreen.textContent += n;
-    
     
 }
