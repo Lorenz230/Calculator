@@ -11,11 +11,89 @@ html, body{
 
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-stretch: condensed;
+    font-weight: 450;
 }
 
 body{
     margin: 0px;
     display: flex;
     flex-direction: column;
+    background-color: orange;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    height: 530px;
+    width: 320px;   
+    border-radius: 30px;
+    background-color: #eee;
+    box-shadow: 0px 0px 20px 7px black;
+    padding: 25px;
+    gap: 30px;
+}
+
+.screen{
+    display: flex;
+    height: 95px;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px 2px black;
+    
+}
+
+.container{
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    gap: 10px;    
+    justify-content: center;
+    align-content: center;
+}
+
+button{
+    display: flex;
+    width: 57px;
+    height: 57px;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    background-color: #999999;
+    border: 0px solid black;
+    border-radius: 57px;
+    font-size: x-large;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0px 3px 5px black;
+    
+}
+
+button:hover {
+    background-color: #eee;
+    color: black;
+    box-shadow: 0px 5px 10px black;
+    transform: translateY(-5px);
+}
+  
+button:active {
+    background-color: #ddd;
+    color: black;
+    transform: translateY(5px);
+}
+
+.operators{
+    background-color: orange;
+}
+
+.func{
+    background-color:#454545;
 }
