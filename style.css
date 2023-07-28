@@ -47,11 +47,13 @@ main {
     height: 105px;
     background-color: #3d3d3d;
     border-radius: 12px;
-    box-shadow: inset 3px 3px 5px 2px black;
+    box-shadow: inset 0px 3px 5px 2px black;
     flex-direction: column;
-    justify-content: end;
+    justify-content: start;
     align-items: end;
     padding: 10px;
+    overflow: hidden;
+
 }
 
 .text{
@@ -59,7 +61,10 @@ main {
     flex: initial;
     width: max-content;
     font-family: 'Calculator', sans-serif;
-    font-size: xx-large;
+    font-size: 35px;
+    color: #60A07F;
+    
+
 }
 
 .container {
