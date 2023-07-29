@@ -38,7 +38,7 @@ main {
     width: 320px;
     border-radius: 25px;
     background-color: #191919;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: 0px 0px 20px 3px black;
     padding: 25px;
 }
 
