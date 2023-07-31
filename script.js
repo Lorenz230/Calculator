@@ -2,6 +2,8 @@ let textScreen = document.querySelector(".screen .text");
 const buttons = document.querySelectorAll("button");
 let text = textScreen.textContent;
 let infix = "";
+let answer = 0;
+let postfix = "";
 console.log(text);
 
 buttons.forEach((button) =>{
@@ -20,7 +22,9 @@ function btnClick(event){
         }
     }
     else if(n == " = "){
-        console.log(shuntingYard(textScreen.textContent));
+        postfix = shuntingYard(textScreen.textContent);
+        console.log("postfix = ", postfix);
+        evalPost(postfix);
     }
     textScreen.textContent += n;
 }
@@ -71,7 +75,41 @@ function shuntingYard(expression) {
   return outputQueue;
 }
 
-// Test the function
-const expression = "8 / / 9 * 6 - 78 + 6 / 4 * 7";
-const result = shuntingYard(expression);
-console.log(result); // Output: [3, 4, 2, 1, '-', '*', 5, '/', '+']
+function evalPost(postfix){
+    let stack = [];
+    let element;
+    let operand1;
+    let operand2;
+    let ans;
+
+    for(let i = 0; i < postfix.length; i++){
+        element = postfix[i];
+        if(element == '*' || element == '/' || element == '-' || element == '+'){
+
+            operand1 = stack.pop();
+            operand2 = stack.pop();
+
+            if(element == '*'){
+                ans = operand1 * operand2;
+            }
+            if(element == '/'){
+                ans = operand2 / operand1;
+            }
+            if(element == '-'){
+                ans = operand2 - operand1;
+            }
+            if(element == '+'){
+                ans = operand1 + operand2;
+            }
+            stack.push(ans);
+
+        }
+        else{
+            stack.push(element);
+            
+        }
+        console.log("stack = ",stack);
+
+    }
+
+}
