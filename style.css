@@ -119,17 +119,18 @@ button:active {
     background-color: #454545;
 }
 
-.func:hover{
+.func:hover, #equals:hover{
     background-color: #e84f4f;
 }
 
-.func:active {
+.func:active, #equals:hover{
     background-color: #f55f5f;
 
 }
 
 #equals{
     width: 124px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 #answer{

@@ -53,11 +53,9 @@ function btnClick(event){
     textScreen.textContent += n;
 }
 
-
 function precedence(operator) {
   if (operator === '+' || operator === '-') return 1;
   if (operator === '*' || operator === '/' || operator === '%') return 2;
-  
   
   return 0;
 }
@@ -65,7 +63,6 @@ function precedence(operator) {
 function shuntingYard(expression) {
   expression = expression.replace('÷', '/');
   expression = expression.replace('×', '*');
-
   
   const outputQueue = [];
   const operatorStack = [];
