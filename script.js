@@ -85,28 +85,45 @@ function evalPost(postfix){
     for(let i = 0; i < postfix.length; i++){
         element = postfix[i];
         if(element == '*' || element == '/' || element == '-' || element == '+'){
+            operand1 = stack[0];
+            operand2 = stack[1];
 
-            operand1 = stack.pop();
-            operand2 = stack.pop();
-
-            if(element == '*'){
-                ans = operand1 * operand2;
+            if(stack.length < 2){
+                if(element == '-'){
+                    ans = operand1 * -1;
+                    stack.pop();
+                }
+                if(element == '+'){
+                    ans = operand1 * 1;
+                    stack.pop();
+                }
             }
-            if(element == '/'){
-                ans = operand2 / operand1;
+            else{
+                operand1 = stack.pop();
+                operand2 = stack.pop();
+                if(element == '*'){
+                    ans = operand1 * operand2;
+                }
+                if(element == '/'){
+                    ans = operand2 / operand1;
+                }
+                if(element == '-'){
+                    ans = operand2 - operand1;
+                }
+                if(element == '+'){
+                    ans = operand1 + operand2;
+                }
             }
-            if(element == '-'){
-                ans = operand2 - operand1;
-            }
-            if(element == '+'){
-                ans = operand1 + operand2;
-            }
+            
+            console.log("op1 = ",operand1);
+            console.log("op2 = ",operand2);
+            console.log("answer = ", ans);
             stack.push(ans);
 
         }
         else{
             stack.push(element);
-            
+             
         }
         console.log("stack = ",stack);
 
