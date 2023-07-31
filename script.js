@@ -5,7 +5,6 @@ let text = textScreen.textContent;
 let infix = "";
 let answer = 0;
 let postfix = "";
-console.log(text);
 
 buttons.forEach((button) =>{
     button.addEventListener('click', btnClick);
@@ -30,7 +29,6 @@ function btnClick(event){
     }
     else if(n == " = "){
         postfix = shuntingYard(textScreen.textContent);
-        console.log("postfix = ", postfix);
         answer = evalPost(postfix);
         answerScreen.textContent += answer;
         if(textScreen.textContent[textScreen.textContent.length-2] == "="){
@@ -67,7 +65,6 @@ function precedence(operator) {
 function shuntingYard(expression) {
   expression = expression.replace('÷', '/');
   expression = expression.replace('×', '*');
-  console.log(expression);
 
   
   const outputQueue = [];
@@ -145,10 +142,6 @@ function evalPost(postfix){
                   ans = operand2 % operand1;
               }
             }
-            
-            console.log("op1 = ",operand1);
-            console.log("op2 = ",operand2);
-            console.log("answer = ", ans);
             stack.push(ans);
 
         }
@@ -156,7 +149,6 @@ function evalPost(postfix){
             stack.push(element);
              
         }
-        console.log("stack = ",stack);
 
     }
     if(stack.length != 1){
