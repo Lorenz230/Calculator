@@ -42,14 +42,15 @@ main {
     padding: 25px;
 }
 
-.screen {
+
+.screen{
     display: flex;
     height: 105px;
     background-color: #3d3d3d;
     border-radius: 12px;
     box-shadow: inset 0px 3px 5px 2px black;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: end;
     padding: 10px;
     overflow: hidden;
@@ -129,4 +130,9 @@ button:active {
 
 #equals{
     width: 124px;
+}
+
+#answer{
+    align-self: flex-end;
+    justify-self: flex-end;
 }

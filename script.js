@@ -1,4 +1,5 @@
 let textScreen = document.querySelector(".screen .text");
+let answerScreen = document.querySelector("#answer");
 const buttons = document.querySelectorAll("button");
 let text = textScreen.textContent;
 let infix = "";
@@ -14,6 +15,7 @@ function btnClick(event){
     let n = event.target.textContent;
     if(n == "AC"){
         textScreen.innerHTML = "";
+        answerScreen.innerHTML = "";
         return;
     }
     else if(n == "."){
@@ -24,7 +26,8 @@ function btnClick(event){
     else if(n == " = "){
         postfix = shuntingYard(textScreen.textContent);
         console.log("postfix = ", postfix);
-        evalPost(postfix);
+        answer = evalPost(postfix);
+        answerScreen.textContent += answer;
         if(textScreen.textContent[textScreen.textContent.length-2] == "="){
           return;
         }
@@ -151,7 +154,7 @@ function evalPost(postfix){
         console.log("stack = ",stack);
 
     }
-
+    return ans;
 }
 
 function removeLastCharacter(inputString) {
