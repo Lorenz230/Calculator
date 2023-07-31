@@ -25,6 +25,19 @@ function btnClick(event){
         postfix = shuntingYard(textScreen.textContent);
         console.log("postfix = ", postfix);
         evalPost(postfix);
+        if(textScreen.textContent[textScreen.textContent.length-2] == "="){
+          return;
+        }
+    }
+    else if(n == "←"){
+      if(textScreen.textContent[textScreen.textContent.length-1] == " "){
+        textScreen.textContent = removeLastCharacter(textScreen.textContent);
+        textScreen.textContent = removeLastCharacter(textScreen.textContent);
+        textScreen.textContent = removeLastCharacter(textScreen.textContent);
+      }else{
+        textScreen.textContent = removeLastCharacter(textScreen.textContent);
+      }
+      n = '';
     }
     textScreen.textContent += n;
 }
@@ -129,4 +142,16 @@ function evalPost(postfix){
 
     }
 
+}
+
+function removeLastCharacter(inputString) {
+  if (typeof inputString !== 'string') {
+    throw new Error('Input must be a string.');
+  }
+
+  if (inputString.length === 0) {
+    throw new Error('Input string is empty.');
+  }
+
+  return inputString.slice(0, -1);
 }
