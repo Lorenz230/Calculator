@@ -50,7 +50,9 @@ function btnClick(event){
 
 function precedence(operator) {
   if (operator === '+' || operator === '-') return 1;
-  if (operator === '*' || operator === '/') return 2;
+  if (operator === '*' || operator === '/' || operator === '%') return 2;
+  
+  
   return 0;
 }
 
@@ -68,7 +70,7 @@ function shuntingYard(expression) {
   tokens.forEach((token) => {
     if (!isNaN(parseFloat(token))) {
       outputQueue.push(parseFloat(token));
-    } else if (token === '+' || token === '-' || token === '*' || token === '/') {
+    } else if (token === '+' || token === '-' || token === '*' || token === '/' || token === '%') {
       while (
         operatorStack.length > 0 &&
         precedence(token) <= precedence(operatorStack[operatorStack.length - 1])
@@ -102,7 +104,7 @@ function evalPost(postfix){
 
     for(let i = 0; i < postfix.length; i++){
         element = postfix[i];
-        if(element == '*' || element == '/' || element == '-' || element == '+'){
+        if(element == '*' || element == '/' || element == '-' || element == '+' || element == '%'){
             operand1 = stack[0];
             operand2 = stack[1];
 
@@ -131,6 +133,9 @@ function evalPost(postfix){
                 if(element == '+'){
                     ans = operand1 + operand2;
                 }
+                if(element == '%'){
+                  ans = operand2 % operand1;
+              }
             }
             
             console.log("op1 = ",operand1);
