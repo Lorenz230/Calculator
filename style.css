@@ -34,7 +34,7 @@ main {
 .calculator {
     display: flex;
     flex-direction: column;
-    height: 530px;
+    height: 600px;
     width: 320px;
     border-radius: 25px;
     background-color: #191919;
