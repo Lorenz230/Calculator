@@ -13,6 +13,11 @@ buttons.forEach((button) =>{
 
 function btnClick(event){
     let n = event.target.textContent;
+    if(answerScreen.innerHTML != ""){
+      textScreen.innerHTML = answerScreen.innerHTML;
+      textScreen.textContent += " ";
+      answerScreen.innerHTML = "";
+    }
     if(n == "AC"){
         textScreen.innerHTML = "";
         answerScreen.innerHTML = "";
