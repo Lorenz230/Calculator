@@ -39,6 +39,11 @@ function btnClick(event){
       }
       n = '';
     }
+    else if(n == ' - ' || n == ' + '){
+      if(textScreen.textContent == " + " || textScreen.textContent == " - " ){
+        return;
+      }
+    }
     textScreen.textContent += n;
 }
 
