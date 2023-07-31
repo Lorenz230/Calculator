@@ -159,6 +159,9 @@ function evalPost(postfix){
         console.log("stack = ",stack);
 
     }
+    if(stack.length != 1){
+      return "Error";
+    }
     return ans;
 }
 
